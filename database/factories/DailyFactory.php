@@ -5,6 +5,7 @@
 use App\Daily;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------

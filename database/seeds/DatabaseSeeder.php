@@ -12,13 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-       /*
+       
         $this->call([
             UsersSeeder::class,
             DailiesSeeder::class,
             ]);
-        */
-        factory(User::class, 5)->create();
-        factory(Daily::class, 15)->create();
+        
+       // factory(User::class, 5)->create();
+       // factory(Daily::class, 15)->create();
     }
 }
