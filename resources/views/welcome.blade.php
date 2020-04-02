@@ -81,9 +81,14 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    EP Daily Scrum
                 </div>
-
+                <div class="m-b-md">
+                What did you do yesterday? <br>
+                What will you do today? <br>
+                Are there any impediments in your way? <br>
+                </div>
+                
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
