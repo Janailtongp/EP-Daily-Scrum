@@ -1,0 +1,29 @@
+@extends('layouts.app')
+
+@section('content')
+ <div class="container">
+    <h1>Preencher novo Daily</h1>
+    @if($errors->any())
+        <div class="alert alert-danger" role="alert">
+            {{$errors->first()}}
+        </div>    
+    @endif
+    <form action="/daily_store"  method="post">
+    @csrf
+    <div class="form-group">
+        <label for="primeiro" class="col-form-label-lg">O que você fez ontem?</label>
+        <input type="text" name="primresp" value=" " class="form-control" id="primeiro">
+
+        <label for="segundo" class="col-form-label-lg">O que você fará hoje?</label>
+        <input type="text" name="segunresp" value=" " class="form-control" id="segundo">
+
+        <label for="terceiro" class="col-form-label-lg">Há algum impedimento no seu caminho?</label>
+        <input type="text" name="tercresp" value=" " class="form-control" id="terceiro"> 
+
+    </div>
+        <input class="btn btn-success" type="submit" value="Salvar">
+        <a class="btn btn-danger" href="/daily_list">Cancelar</a>
+    </form>
+ </div>
+ @endsection
+ 

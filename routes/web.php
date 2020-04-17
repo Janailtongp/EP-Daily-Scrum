@@ -20,3 +20,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/daily_list', 'DailyController@index')->name('list');
+
+    Route::get('/daily_form', 'DailyController@create');
+    Route::post('/daily_store', 'DailyController@store');
+
+    Route::get('/daily_edit/{id}', 'DailyController@edit');
+    Route::post('/daily_update/{id}', 'DailyController@update'); 
+
+
+
+    Route::get('/daily_delete/{id}', 'DailyController@destroy');
+
+    Route::get('/my_daily', 'DailyController@mylist');
+});
+
+
