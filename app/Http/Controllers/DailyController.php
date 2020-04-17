@@ -6,6 +6,7 @@ use App\Daily;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\DailyRequest;
 
 class DailyController extends Controller
 {
@@ -19,7 +20,7 @@ class DailyController extends Controller
         //
 
       //
-        $dailies = DB::table('dailies')->get(); 
+        $dailies = DB::table('dailies')->paginate(5); 
         if(!isset($dailies)){
             dd('sem registros');
         }
@@ -44,25 +45,10 @@ class DailyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DailyRequest $request)
     {
-
-        $user_id = Auth::user()->id;
-        //$meu_id = 2;
-        // pegando o dia de hoje
-        //$date=date('Y.m.d');
-        //$date = str_replace(".","-",$date);
-
-
-        // pegando os dailies de hoje e desse user
-        //$dailies = DB::table('dailies')->where('created_at', '=', $date)->where('user_id', $meu_id)->get(); 
-
-        //if($dailies == null){
-          //  return Redirect::back()->withErrors(['msg', 'O daily ja foi preenchido hoje']);
-        //}
-        //else{ 
-
-            //dd('oi');
+            $user_id = Auth::user()->id;
+        
             $daily = new Daily;
             $daily->first_answer = $request->primresp;
             $daily->second_answer = $request->segunresp;
@@ -110,7 +96,7 @@ class DailyController extends Controller
      * @param  \App\Daily  $daily
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DailyRequest $request, $id)
     {
         //
         $daily = Daily::find($id);
@@ -146,7 +132,7 @@ class DailyController extends Controller
         $user_id = Auth::user()->id;
 
 
-        $dailies = DB::table('dailies')->where('user_id', $user_id)->get(); 
+        $dailies = DB::table('dailies')->where('user_id', $user_id)->paginate(5); 
         if(!isset($dailies)){
             dd('sem registros');
         }

@@ -14,8 +14,8 @@
                         </div>
                     @endif
 
-                    <p>Sistema desenvolvido como conteudo para as aulas de PHP com o Framework Laravel <br>
-                     Tendo como objetivo criar uma ferramenta de automaçao do preenchimento do Daily Scrum</p>
+                    <p>Sistema desenvolvido como conteúdo para as aulas de PHP com o Framework Laravel, <br>
+                     tendo como objetivo criar uma ferramenta de automação do preenchimento do Daily Scrum</p>
                 </div>
             </div>
         </div>
